@@ -1,32 +1,50 @@
-ingresar()
-saludar()
-ver_menu()
-ingresar_opcion()
+#IMPORTS
+import time
 
 
+#FUNCIONES
 def ingresar():  
-    print("Bienvenido a Hamburguesas IT")
+    print("\nBienvenido a Hamburguesas IT")
     nombre = input("Ingrese su nombre encargad@: ")
+    saludar(nombre)
+
 
 def saludar(nombre):
     print("Bienvenido a Hamburguesas IT")
     print("Encargad@ ->", nombre)
     print("Recuerda, siempre hay que recibir al cliente con una sonrisa :)")
 
+
 def ver_menu():
+    print("===========================MENU================================")
     print("1 – Ingreso nuevo pedido")
     print("2 – Cambio de turno")
     print("3 – Apagar sistema")
+    print("===============================================================")
+    ingresar_opcion()
+    print("===============================================================")
+
 
 def ingresar_opcion():
    opcion=0
+   
+   while opcion!=1 and opcion!=2 and opcion!=3:
+        opcion=input("Ingrese una opcion: ")
+        print("===============================================================")
 
-while opcion!=1 & opcion!=2 & opcion!=3:
-    opcion=input("Ingrese una opcion: ")
+        if opcion==1:
+            ingresar_pedido()
+            confirmar_pedido()
 
-if opcion==1:
-    ingresar_pedido()
+        elif opcion==2:
+            ingresar()
+            saludar()
+            ver_menu()
+            ingresar_opcion()
 
+        elif opcion==3:
+            print("Sistema finalizado")
+            opcion=0
 
 
 def ingresar_pedido():
@@ -43,6 +61,7 @@ def ingresar_pedido():
     flurby = int(input())
     calcular_monto(combo_s,combo_d,combo_t,flurby)
     confirmar_pedido
+    
 
 def calcular_monto(combo_s,combo_d,combo_t,flurby):
     total = (combo_s * 5) + (combo_d * 6) + (combo_t * 7) + (flurby * 2)
@@ -66,15 +85,7 @@ def confirmar_pedido():
         print("Opcion incorrecta ingrese nuevamente")
         confirmar_pedido()
 
+#MAIN
 
-
-
-
-
-
-
-
-
-
-
-
+ingresar()
+ver_menu()
