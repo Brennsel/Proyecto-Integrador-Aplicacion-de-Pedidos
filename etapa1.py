@@ -28,23 +28,26 @@ def ver_menu():
 def ingresar_opcion():
    opcion=0
    
-   while opcion!=1 and opcion!=2 and opcion!=3:
+   while opcion!=1 or opcion!=2 or opcion!=3:
         opcion=input("Ingrese una opcion: ")
         print("===============================================================")
 
         if opcion==1:
             ingresar_pedido()
             confirmar_pedido()
+            break
 
         elif opcion==2:
             ingresar()
             saludar()
             ver_menu()
             ingresar_opcion()
+            break
 
         elif opcion==3:
             print("Sistema finalizado")
             opcion=0
+            break
 
 
 def ingresar_pedido():
